@@ -1,0 +1,129 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #ffb6d9, #ffcce6);
+    min-height:100vh;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* TITULO */
+
+.titulo{
+    margin-top:30px;
+    font-size:3rem;
+    color:#fff;
+    text-align:center;
+
+    text-shadow:
+        0 0 10px #fff,
+        0 0 20px #ff4fa3,
+        0 0 40px #ff4fa3;
+
+    animation:brillar 2s infinite alternate;
+}
+
+/* animación glow */
+@keyframes brillar{
+    from{
+        text-shadow:
+        0 0 10px #fff,
+        0 0 20px #ff4fa3,
+        0 0 40px #ff4fa3;
+    }
+    to{
+        text-shadow:
+        0 0 20px #fff,
+        0 0 40px #ff85c1,
+        0 0 60px #ff85c1;
+    }
+}
+/* GRID */
+
+.container{
+    margin-top:40px;
+    width:70%;
+    display:grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas */
+    gap:30px;
+    padding-bottom:60px;
+}
+
+/* TARJETAS */
+
+.card{
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(12px);
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+
+    height:140px; /* 🔥 más grandes */
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:10px;
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.05);
+    background: rgba(255,255,255,0.3);
+}
+
+/* BOTON */
+
+.play{
+    margin-top:5px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff4fa3,#ff85c1);
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
+    font-size:1rem;
+}
+
+.play:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #ff4fa3;
+}
+
+
+/* CORAZONES FLOTANDO */
+
+.background span{
+    position:absolute;
+    color:white;
+    font-size:14px;
+    animation:float 8s linear infinite;
+    opacity:0.5;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    30%{opacity:0.6;}
+    100%{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(-20px);}
+    to{opacity:1; transform:translateY(0);}
+}
