@@ -5,13 +5,14 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+/* BOTÓN ATRÁS */
 .back-btn{
     position:fixed;
-    top:20px;
-    left:25px;
+    top:clamp(10px,3vw,20px);
+    left:clamp(10px,3vw,25px);
     color:white;
     text-decoration:none;
-    font-size:18px;
+    font-size:clamp(14px,2.5vw,18px);
     opacity:0.7;
     transition:0.2s;
     z-index:10;
@@ -22,17 +23,19 @@
     transform:translateX(-3px);
 }
 
+/* BODY */
 body{
     background: radial-gradient(circle at top, #2a0000, #0a0000 60%, #000);
     min-height:100vh;
-    overflow-y:auto;
+    overflow-x:hidden;
     display:flex;
     flex-direction:column;
     align-items:center;
     color:white;
+    padding:20px;
 }
 
-/* CANVAS FONDO */
+/* CANVAS */
 #fondo{
     position:fixed;
     top:0;
@@ -44,15 +47,13 @@ body{
 }
 
 /* TITULO */
-
 .titulo{
-    margin-top:30px;
-    font-size:2.5rem;
+    margin-top:clamp(20px,5vw,30px);
+    font-size:clamp(1.5rem,5vw,2.5rem);
     text-align:center;
     z-index:2;
 
     color:#ff7a7a;
-
     text-shadow:0 0 15px rgba(255,100,100,0.6);
 
     animation:latido 3s infinite ease-in-out;
@@ -63,7 +64,7 @@ body{
     50%{ transform:scale(1.03); }
 }
 
-/* efecto enojo */
+/* EFECTO EXTRA */
 @keyframes shakeGlow{
     0%{ transform:translateX(0); }
     25%{ transform:translateX(-2px); }
@@ -72,32 +73,32 @@ body{
     100%{ transform:translateX(2px); }
 }
 
-/* GRID */
-
+/* GRID RESPONSIVE */
 .container{
-    margin-top:40px;
-    width:70%;
+    margin-top:clamp(20px,5vw,40px);
+    width:min(1100px, 100%);
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:clamp(15px,3vw,30px);
     padding-bottom:60px;
     z-index:2;
 }
 
 /* CARDS */
-
 .card{
     background: rgba(255, 80, 80, 0.08);
     backdrop-filter: blur(10px); 
     -webkit-backdrop-filter: blur(10px);
     border:1px solid rgba(255,100,100,0.2);
     border-radius:20px;
-    padding:30px;
+    padding:clamp(15px,3vw,30px);
     text-align:center;
     cursor:pointer;
     transition:0.2s;
     box-shadow:0 0 20px rgba(255,0,0,0.15);
-    height:140px;
+
+    min-height:120px;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -106,24 +107,14 @@ body{
     z-index:2;
 }
 
-/* vibración al pasar */
 .card:hover{
     transform:scale(1.03);
     box-shadow:0 0 25px rgba(255,100,100,0.3);
 }
 
-@keyframes temblor{
-    0%{ transform:translate(0); }
-    25%{ transform:translate(-1px,1px); }
-    50%{ transform:translate(1px,-1px); }
-    75%{ transform:translate(-1px,-1px); }
-    100%{ transform:translate(1px,1px); }
-}
-
-/* BOTON */
-
+/* BOTÓN */
 .play{
-    padding:12px 25px;
+    padding:clamp(10px,2vw,12px) clamp(18px,4vw,25px);
     border:none;
     border-radius:30px;
     background:linear-gradient(45deg,#ff0000,#ff4d4d);
@@ -131,6 +122,7 @@ body{
     cursor:pointer;
     transition:0.3s;
     font-weight:bold;
+    font-size:clamp(0.9rem,2.5vw,1rem);
 }
 
 .play:hover{
