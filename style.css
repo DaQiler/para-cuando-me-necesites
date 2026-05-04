@@ -1,48 +1,36 @@
 @import url('https://fonts.cdnfonts.com/css/minecraft-4');
+
 *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
     font-family: 'Minecraft', sans-serif;
 }
+
 body{
     color: azure;
-    width: 100%;
-    height: 82vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: black;
-    /* padding-top: -30; */
+    padding: 20px;
+    text-align: center;
 }
 
-.botones{
-    padding: 9px;
-    border-radius: 80px;
-    background-color: transparent;
-    border: none;
-}
-
-.botones a{
-    background-color: #bc76dd;
-    padding: 9px;
-    border-radius: 80px;
-    -webkit-border-radius: 80px;
-    -moz-border-radius: 80px;
-    -ms-border-radius: 80px;
-    -o-border-radius: 80px;
-
-}
-
-.botones a:focus{
-    background-color: rgb(94, 0, 89);
-}
-
+/* TEXTO PRINCIPAL */
 .greetings{
-    font-size: 7rem;
+    font-size: clamp(2.5rem, 8vw, 7rem);
     font-weight: 900;
+    word-break: break-word;
 }
+
+/* ANIMACIÓN */
 .greetings > span{
     animation: glow 2.5s ease-in-out infinite;
 }
+
 @keyframes glow{
     0%, 100%{
         color: #fff;
@@ -53,45 +41,39 @@ body{
         text-shadow: none;
     }
 }
-.greetings > span:nth-child(2){
-    animation-delay: .2s ;
-}
-.greetings > span:nth-child(3){
-    animation-delay: .4s ;
-}
-.greetings > span:nth-child(4){
-    animation-delay: .6s;
-}
-.greetings > span:nth-child(5){
-    animation-delay: .8s;
-}
-.greetings > span:nth-child(6){
-    animation-delay: 1s;
-}
 
+/* delays */
+.greetings > span:nth-child(2){ animation-delay: .2s; }
+.greetings > span:nth-child(3){ animation-delay: .4s; }
+.greetings > span:nth-child(4){ animation-delay: .6s; }
+.greetings > span:nth-child(5){ animation-delay: .8s; }
+.greetings > span:nth-child(6){ animation-delay: 1s; }
+
+/* DESCRIPCIÓN */
 .description{
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    margin: 20px 0;
+    max-width: 90%;
 }
 
-.button a{
+/* BOTÓN */
+.botones{
+    border: none;
+    background: transparent;
+}
+
+.botones a{
+    display: inline-block;
+    background-color: #bc76dd;
+    padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px);
+    border-radius: 50px;
     text-decoration: none;
-    font-size: 1rem;
-    color: #111;
+    color: white;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    transition: 0.3s;
 }
 
-@media screen and (max-width:574px){
-    .greetings{
-        display: block;
-        font-size: 4rem;
-        font-weight: 800;
-        text-align: center;
-    }
-    .description{
-        font-size: 2rem;
-    }
-    
-    .button a{
-        font-size: 1rem;
-    }
+.botones a:hover{
+    background-color: #8a3bb3;
+    box-shadow: 0 0 15px #bc76dd;
 }
